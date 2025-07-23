@@ -11,8 +11,26 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-DISCORD_TOKEN = "MTM3NzY5MTQzNzA1OTE0NTkxMA.Ge4OPt.R_250rQ-wTGg9OtNzq5fBjP_K8JSq85kM56JUg"  # ← Замени на свой токен
+# Функция загрузки конфига
+def load_config():
+    config_path = "config.json"
+    if not os.path.exists(config_path):
+        logging.error("❌ Файл config.json не найден! Создайте его с токеном.")
+        return None
+    try:
+        with open(config_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        logging.error(f"Ошибка при чтении config.json: {e}")
+        return None
 
+config = load_config()
+if config is None or "DISCORD_TOKEN" not in config:
+    logging.error("❌ Токен Discord не найден в config.json. Программа завершена.")
+    exit(1)
+
+DISCORD_TOKEN = config["DISCORD_TOKEN"]
+print("Токен загружен из config.json")
 
 class Kasumi(commands.Bot):
     def __init__(self):
