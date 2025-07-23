@@ -1,0 +1,13 @@
+{
+    "startup_cogs": [
+        "pig",
+        "loger",
+        "\u0432\u044b\u0431\u0440\u043e\u0441\u044b",
+        "spam_channel"
+    ],
+    "target_channel": 1394028270391136290,
+    "spam_delay": 30.0,
+    "mention_role": 1394033095732367482,
+    "spam_message": "\u0416\u0414\u0423 \u0412\u0421\u0415\u0425 \u041d\u0410 \u041a\u0412, \u0418\u0413\u0420\u0410\u0415\u041c \u041f\u041e\u0414 \u0421\u0415\u0411\u042f",
+    "is_spamming": false
+}
